@@ -1,23 +1,26 @@
 import "./App.css";
 import {
-  Show,
+  SignedIn,
+  SignedOut,
   SignInButton,
   SignUpButton,
   UserButton,
 } from "@clerk/clerk-react";
+
 function App() {
   return (
     <div>
       <h1>MY APP</h1>
 
       <header>
-        <Show when="signed-out">
+        <SignedOut>
           <SignInButton mode="modal" />
           <SignUpButton mode="modal" />
-        </Show>
-        <Show when="signed-in">
+        </SignedOut>
+
+        <SignedIn>
           <UserButton />
-        </Show>
+        </SignedIn>
       </header>
     </div>
   );
