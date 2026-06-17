@@ -1,6 +1,10 @@
 import "./App.css";
-import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/react";
-
+import {
+  Show,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/clerk-react";
 function App() {
   return (
     <div>
