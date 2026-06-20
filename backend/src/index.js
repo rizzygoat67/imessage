@@ -50,6 +50,9 @@ if (fs.existsSync(publicDir)) {
   });
 }
 
-connectDB();
+app.listen(PORT, () => {
+  connectDB();
+  console.log("Server is up and running on PORT:", PORT);
 
-export default app;
+  if (process.env.NODE_ENV === "production") job.start();
+});
