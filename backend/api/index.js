@@ -26,8 +26,8 @@ app.use(
 
 app.use(clerkMiddleware());
 
-app.get("/health", (req, res) => {
-  res.status(200).json({ ok: true });
+app.get("/", (req, res) => {
+  res.json({ ok: true });
 });
 
 app.use("/api/auth", authRoutes);
