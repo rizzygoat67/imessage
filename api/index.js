@@ -1,4 +1,5 @@
 import express from "express";
+import serverless from "serverless-http";
 import cors from "cors";
 
 import { clerkMiddleware } from "@clerk/express";
@@ -11,7 +12,7 @@ const app = express();
 
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
-// Clerk webhook MUST be before express.json()
+// Clerk webhook first
 app.use("/api/webhooks/clerk", express.raw({ type: "application/json" }), clerkWebhook);
 
 app.use(express.json());
@@ -32,4 +33,4 @@ app.get("/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-export default app;
+export default serverless(app);
