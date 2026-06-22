@@ -3,8 +3,8 @@ import serverless from "serverless-http";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.json({ api: "working" });
+app.get("/health", (req, res) => {
+  res.json({ ok: true });
 });
 
 export default serverless(app);
