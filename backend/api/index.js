@@ -2,11 +2,11 @@ import express from "express";
 
 const app = express();
 
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
   res.send("EXPRESS WORKS");
 });
 
-app.get("/health", (req, res) => {
+app.get("/api/health", (req, res) => {
   res.json({ ok: true });
 });
 
