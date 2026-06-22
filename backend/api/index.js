@@ -2,12 +2,10 @@ import express from "express";
 
 const app = express();
 
-app.use(express.json());
-
-app.get("/api/health", (req, res) => {
-  res.json({ ok: true });
+app.get("/", (req, res) => {
+  res.send("EXPRESS WORKS");
 });
 
-export default function handler(req, res) {
-  return app(req, res);
-}
+export default (req, res) => {
+  app(req, res);
+};
