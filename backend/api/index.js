@@ -1,10 +1,9 @@
 import express from "express";
-import serverless from "serverless-http";
 
 const app = express();
 
-app.get("/health", (req, res) => {
-  res.json({ ok: true });
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ ok: true });
 });
 
-export default serverless(app);
+export default app;
