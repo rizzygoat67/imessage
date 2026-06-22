@@ -13,7 +13,7 @@ const app = express();
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
 // IMPORTANT: webhook must be before express.json()
-app.use("/api/webhooks/clerk", express.raw({ type: "application/json" }), clerkWebhook);
+app.use("/webhooks/clerk", express.raw({ type: "application/json" }), clerkWebhook);
 
 app.use(express.json());
 
@@ -30,7 +30,7 @@ app.get("/health", (req, res) => {
   res.status(200).json({ ok: true });
 });
 
-app.use("/api/auth", authRoutes);
-app.use("/api/messages", messageRoutes);
+app.use("/auth", authRoutes);
+app.use("/messages", messageRoutes);
 
 export default serverless(app);
